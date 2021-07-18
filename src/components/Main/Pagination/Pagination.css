@@ -1,0 +1,25 @@
+.pagination {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    justify-content: space-around;
+  }
+  .pagination a {
+    text-decoration: none;
+    color: #53565A;
+    font-size: 20px;
+    border: 1px solid #0e357e;
+    border-radius: 5%;
+    padding: 10px 20px;
+    box-shadow: 1px 1px 13px 1px #0e357e;
+  }
+  .pagination a:hover {
+    box-shadow: 1px 1px 13px 1px #1857ce;
+  }
+  .pagination a:active {
+    box-shadow: 1px 1px 13px 1px #0c3074;
+  }
+  .pagination .select {
+    box-shadow: none;
+  }
