@@ -1,51 +1,65 @@
-.container .movie-list li div {
-    position: relative;
-  }
-  .container .movie-list li div .hover_date {
-    position: absolute;
-    width: 148px;
-    height: 30px;
-    background-color: rgba(135, 206, 250, 0.719);
-    border: 2px solid rgba(135, 206, 250, 0.719);
-    display: none;
-  }
-  .container .movie-list li div .hover_date p {
-    color: black;
-    text-align: center;
-    margin-top: 0;
-    font-size: 14px;
-  }
-  .container .movie-list li div .active {
-    display: block !important;
-  }
-  .container .movie-list li div img {
-    border-radius: 5px;
-    min-width: 150px;
-  }
-  .container .movie-list li div .hover_rate {
-    position: absolute;
-    content: "";
-    top: 168px;
-    width: 148px;
-    height: 30px;
-    background-color: rgba(135, 206, 250, 0.719);
-    border: 1px solid rgba(135, 206, 250, 0.719);
-    display: none;
-  }
-  .container .movie-list li div .hover_rate p {
-    color: black;
-    text-align: center;
-    margin-top: 0;
-    font-size: 14px;
-  }
-  .container .movie-list li div:hover .hover_date {
-    display: block;
-  }
-  .container .movie-list li div:hover .hover_rate {
-    display: block;
-  }
-  .container .movie-list h4 {
-    max-width: 150px;
-    text-align: center;
-    margin-bottom: 0;
-  }
+li {
+  border: 3px solid lightskyblue;
+  border-radius: 5px;
+}
+li a{
+  text-decoration: none;
+  color: #53565A;
+}
+li:hover {
+  box-shadow: 1px 1px 13px 1px #1857ce;
+}
+li:active {
+  box-shadow: 1px 1px 13px 1px #0c3074;
+}
+li div {
+  position: relative;
+}
+li div .hover_date {
+  position: absolute;
+  width: 148px;
+  height: 30px;
+  background-color: rgba(135, 206, 250, 0.719);
+  border: 2px solid rgba(135, 206, 250, 0.719);
+  display: none;
+}
+li div .hover_date p {
+  color: black;
+  text-align: center;
+  margin-top: 0;
+  font-size: 14px;
+}
+li div .active {
+  display: block !important;
+}
+li div img {
+  border-radius: 5px;
+  min-width: 150px;
+}
+li div .hover_rate {
+  position: absolute;
+  content: "";
+  top: 168px;
+  width: 148px;
+  height: 30px;
+  background-color: rgba(135, 206, 250, 0.719);
+  border: 1px solid rgba(135, 206, 250, 0.719);
+  display: none;
+}
+li div .hover_rate p {
+  color: black;
+  text-align: center;
+  margin-top: 0;
+  font-size: 14px;
+}
+li div:hover .hover_date {
+  display: block;
+}
+li div:hover .hover_rate {
+  display: block;
+}
+.container .movie-list h4 {
+  max-width: 150px;
+  text-align: center;
+  margin-bottom: 0;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./Pagination.css"
 const Pagination = ({ selectPage, handlePaginationPage, maxPage, isPending }) => {
     let paginationItems = [];
 

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./Header/Header";
 import Homepage from "./Main/HomePage/HomePage";
 import FilmInfo from "./Main/FilmInfo/FilmInfo";
+import { LoginPage } from "./Main/LoginPage/LoginPage";
+import { Footer } from './Footer/Footer';
 import './App.css';
 
 export default class App extends Component {
@@ -32,11 +34,13 @@ export default class App extends Component {
             return { selectPage: count, isPending: true }
         })
     }
+
     handleFilter = (item) => {
         this.setState(() => {
             return { selectedFilter: item, isPending: true }
         })
     }
+
     updateData = () => {
         let filter;
         switch (this.state.selectedFilter) {
@@ -78,41 +82,59 @@ export default class App extends Component {
         this.updateData();
 
     }
+
     componentDidUpdate() {
         if (this.state.isPending) {
             this.updateData()
         }
     }
+
     render() {
         let filmToRender = []
         let remainingFilm = this.state.filmData.filter(el => this.state.id.indexOf(el.id) === -1)
-
         filmToRender = remainingFilm
 
         return (
-            <div className="page">
-                <Header />
-                <Route exact path={"/"}>
-                    <Homepage
-                        filmData={filmToRender}
-                        id={this.state.id}
-                        selectPage={this.state.selectPage}
-                        maxPage={this.state.maxPage}
-                        isPending={this.state.isPending}
-                        selectedFilfer={this.state.selectedFilter}
-                        openFilmInfo={this.openFilmInfo}
-                        handlePaginationPage={this.handlePaginationPage}
-                        handleFilter={this.handleFilter} />
-                </Route>
-                <Route exact path={"/" + String(this.state.selectFilmId)}>
-                    <FilmInfo
-                        selectedFilm={filmToRender.filter(el => el.id === this.state.selectFilmId)[0]}
-                        genres={this.state.genres}
+            <Router>
+                <div className="page">
+                    <Header
+                        userName={this.props.userName}
+                        isLoggedIn={this.props.isLoggedIn}
+                        setIsLoggedIn={this.props.setIsLoggedIn}
                     />
-                </Route>
-
-
-
-            </div>);
+                    <Switch>
+                        <Route exact path="/">
+                            <Homepage
+                                filmData={filmToRender}
+                                id={this.state.id}
+                                selectPage={this.state.selectPage}
+                                maxPage={this.state.maxPage}
+                                isPending={this.state.isPending}
+                                selectedFilfer={this.state.selectedFilter}
+                                openFilmInfo={this.openFilmInfo}
+                                handlePaginationPage={this.handlePaginationPage}
+                                handleFilter={this.handleFilter} />
+                        </Route>
+                        <Route exact path={"/" + String(this.state.selectFilmId)}>
+                            <FilmInfo
+                                selectedFilm={filmToRender.filter(el => el.id === this.state.selectFilmId)[0]}
+                                genres={this.state.genres}
+                            />
+                        </Route>
+                        <Route
+                            exact
+                            path="/login"
+                            render={(props) => (
+                                <LoginPage
+                                    {...props}
+                                    setIsLoggedIn={this.props.setIsLoggedIn}
+                                    setUserName={this.props.setUserName}
+                                />
+                            )}
+                        />
+                    </Switch>
+                    <Footer year={new Date().getFullYear()} />
+                </div>
+            </Router>);
     }
 }

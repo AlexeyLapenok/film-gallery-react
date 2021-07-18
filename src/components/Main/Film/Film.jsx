@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import noimage from '../../../assets/images/content/no-image.png';
+import './Film.css';
 
 const Card = ({ el, openFilmInfo, id }) => {
     let link

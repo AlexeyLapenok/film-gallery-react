@@ -1,16 +1,16 @@
 .image {
-    margin-top: 50px;
-    padding-bottom: 10vw;
-  }
-  
-  .about {
-    position: absolute;
-    display: inline-block;
-    left: 50%;
-    top: 17%;
-    max-width: 400px;
-  }
-  .about p {
-    min-height: 20px;
-    min-width: 160px;
-  }
+  margin-top: 50px;
+  padding-bottom: 10vw;
+}
+
+.about {
+  position: absolute;
+  display: inline-block;
+  left: 50%;
+  top: 17%;
+  max-width: 400px;
+}
+.about p {
+  min-height: 20px;
+  min-width: 160px;
+}

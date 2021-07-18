@@ -1,5 +1,6 @@
 import React from 'react';
 import noimage from '../../../assets/images/content/no-image.png';
+import './FilmInfo.css';
 
 const FilmInfo = ({ selectedFilm, genres }) => {
 
