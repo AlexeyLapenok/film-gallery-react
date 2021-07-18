@@ -1,0 +1,13 @@
+.background {
+    background-color: #ebebeb;
+    padding-bottom: 50px;
+  }
+  
+  .none {
+    display: none !important;
+  }
+  
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+  }

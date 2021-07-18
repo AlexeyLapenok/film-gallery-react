@@ -1,0 +1,51 @@
+.container .movie-list li div {
+    position: relative;
+  }
+  .container .movie-list li div .hover_date {
+    position: absolute;
+    width: 148px;
+    height: 30px;
+    background-color: rgba(135, 206, 250, 0.719);
+    border: 2px solid rgba(135, 206, 250, 0.719);
+    display: none;
+  }
+  .container .movie-list li div .hover_date p {
+    color: black;
+    text-align: center;
+    margin-top: 0;
+    font-size: 14px;
+  }
+  .container .movie-list li div .active {
+    display: block !important;
+  }
+  .container .movie-list li div img {
+    border-radius: 5px;
+    min-width: 150px;
+  }
+  .container .movie-list li div .hover_rate {
+    position: absolute;
+    content: "";
+    top: 168px;
+    width: 148px;
+    height: 30px;
+    background-color: rgba(135, 206, 250, 0.719);
+    border: 1px solid rgba(135, 206, 250, 0.719);
+    display: none;
+  }
+  .container .movie-list li div .hover_rate p {
+    color: black;
+    text-align: center;
+    margin-top: 0;
+    font-size: 14px;
+  }
+  .container .movie-list li div:hover .hover_date {
+    display: block;
+  }
+  .container .movie-list li div:hover .hover_rate {
+    display: block;
+  }
+  .container .movie-list h4 {
+    max-width: 150px;
+    text-align: center;
+    margin-bottom: 0;
+  }
