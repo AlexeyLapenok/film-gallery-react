@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Header from "./Header/Header";
+import Header from "./header/Header";
 import Homepage from "./Main/HomePage/HomePage";
 import FilmInfo from "./Main/FilmInfo/FilmInfo";
 import './app.css';
