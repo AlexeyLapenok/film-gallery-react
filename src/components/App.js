@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import Header from "./Header/Header";
 import Homepage from "./Main/HomePage/HomePage";
 import FilmInfo from "./Main/FilmInfo/FilmInfo";
-import './app.css';
+import './App.css';
 
 export default class App extends Component {
     state = {
