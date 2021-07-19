@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import "./Pagination.css"
 const Pagination = ({ selectPage, handlePaginationPage, maxPage, isPending }) => {
     let paginationItems = [];
@@ -14,10 +15,9 @@ const Pagination = ({ selectPage, handlePaginationPage, maxPage, isPending }) =>
     } else if (selectPage === maxPage) {
         paginationItems = [[1, 1], ['prev', maxPage - 1], [selectPage, maxPage]]
     }
-
     return (
         <div className="pagination" >
-            {isPending ? '' : paginationItems.map(el => <button key={el[1]} onClick={() => handlePaginationPage(el[1])}>{el[0]}</button>)}
+            {isPending ? '' : paginationItems.map(el => <NavLink exact to={"/" + el[1]} key={el[1]} onClick={() => handlePaginationPage(el[1])}>{el[0]}</NavLink>)}
 
         </div>
     );

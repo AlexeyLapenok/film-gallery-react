@@ -12,7 +12,7 @@ export default class App extends Component {
         apiKey: '4fd6fe1cdcc728e4b3c94a5165eac180',
         maxPage: 10,
         selectedFilter: 'No filter',
-        selectPage: 1,
+        selectPage: Number(localStorage.getItem('selectedPage')),
         selectFilmId: 0,
         isPending: true,
         genres: [],
@@ -27,12 +27,15 @@ export default class App extends Component {
                 return { selectFilmId: id }
             })
         }
+        localStorage.setItem('selectFilmId', id);
     }
 
     handlePaginationPage = (count) => {
         this.setState(() => {
             return { selectPage: count, isPending: true }
         })
+        localStorage.setItem('selectedPage', count);
+
     }
 
     handleFilter = (item) => {
@@ -67,6 +70,9 @@ export default class App extends Component {
         fetch(genresUrl)
             .then(response => { return response.json() })
 
+            .then(data => this.setState(() => {
+                return { genres: data.genres }
+            }))
             .then(fetch(url)
                 .then(response => {
                     return response.json()
@@ -93,7 +99,7 @@ export default class App extends Component {
         let filmToRender = []
         let remainingFilm = this.state.filmData.filter(el => this.state.id.indexOf(el.id) === -1)
         filmToRender = remainingFilm
-
+        localStorage.setItem('selectedFilm', JSON.stringify(filmToRender.filter(el => el.id === this.state.selectFilmId)[0]))
         return (
             <Router>
                 <div className="page">
@@ -115,7 +121,19 @@ export default class App extends Component {
                                 handlePaginationPage={this.handlePaginationPage}
                                 handleFilter={this.handleFilter} />
                         </Route>
-                        <Route exact path={"/" + String(this.state.selectFilmId)}>
+                        <Route exact path={"/" + Number(localStorage.getItem('selectedPage'))}>
+                            <Homepage
+                                filmData={filmToRender}
+                                id={this.state.id}
+                                selectPage={this.state.selectPage}
+                                maxPage={this.state.maxPage}
+                                isPending={this.state.isPending}
+                                selectedFilfer={this.state.selectedFilter}
+                                openFilmInfo={this.openFilmInfo}
+                                handlePaginationPage={this.handlePaginationPage}
+                                handleFilter={this.handleFilter} />
+                        </Route>
+                        <Route exact path={"/" + Number(localStorage.getItem('selectFilmId'))}>
                             <FilmInfo
                                 selectedFilm={filmToRender.filter(el => el.id === this.state.selectFilmId)[0]}
                                 genres={this.state.genres}

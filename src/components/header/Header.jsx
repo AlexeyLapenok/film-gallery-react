@@ -9,11 +9,15 @@ const Header = ({ isLoggedIn, setIsLoggedIn, userName }) => {
         localStorage.setItem('isLoggedIn', false)
         setIsLoggedIn(false);
     };
+    const handleHome = () => {
+        localStorage.setItem('selectedPage', 1)
+
+    };
     return (
         <header className="header">
             <h1 className="none">Film gallery</h1>
             <nav>
-                <NavLink exact to="/" className="header_home"><ReactIcon alt="home" /></NavLink>
+                <a href="/" className="header_home" onClick={handleHome}><ReactIcon alt="home" /></a>
                 {
                     isLoggedIn ?
                         <div>

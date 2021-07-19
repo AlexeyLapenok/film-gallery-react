@@ -3,21 +3,20 @@ import noimage from '../../../assets/images/content/no-image.png';
 import './FilmInfo.css';
 
 const FilmInfo = ({ selectedFilm, genres }) => {
-
-    let link
+    // debugger;
+    let link;
     if (selectedFilm.poster_path != null) {
         link = 'https://image.tmdb.org/t/p/w500/' + selectedFilm.poster_path
     } else {
         link = noimage
-    }
+    };
 
     let genresRender = [];
     for (let i of genres) {
         if (selectedFilm.genre_ids.indexOf(i.id) !== -1) {
             genresRender.push(i.name)
         }
-    }
-
+    };
     return (
         <main className="background">
             <div className="container"><img className="image" src={link} alt="" width="300px" height="400px" />
