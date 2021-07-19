@@ -1,0 +1,8 @@
+.container .movie-list {
+    list-style-type: none;
+    -webkit-padding-start: 0;
+            padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 30px 62px;
+  }

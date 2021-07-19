@@ -1,0 +1,16 @@
+.background {
+  background-color: #ebebeb;
+  padding-bottom: 50px;
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.preloader {
+  position: absolute;
+  left: 35%;
+  top: 140px;
+  font-size: 40px;
+}
