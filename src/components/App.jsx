@@ -12,7 +12,7 @@ export default class App extends Component {
         apiKey: '4fd6fe1cdcc728e4b3c94a5165eac180',
         maxPage: 10,
         selectedFilter: 'No filter',
-        selectPage: Number(localStorage.getItem('selectedPage')),
+        selectPage: Number(localStorage.getItem('selectedPage')) || 1,
         selectFilmId: 0,
         isPending: true,
         genres: [],
@@ -99,7 +99,6 @@ export default class App extends Component {
         let filmToRender = []
         let remainingFilm = this.state.filmData.filter(el => this.state.id.indexOf(el.id) === -1)
         filmToRender = remainingFilm
-        localStorage.setItem('selectedFilm', JSON.stringify(filmToRender.filter(el => el.id === this.state.selectFilmId)[0]))
         return (
             <Router>
                 <div className="page">
